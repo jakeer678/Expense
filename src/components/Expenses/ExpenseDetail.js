@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ExpenseDetail = (props) => {
-  function deleteExepense() {
-    const deleteExpense = document.getElementById("titleExpense");
-    deleteExpense.remove();
+  const [expense, setExpense] = useState(props.amount);
+
+  function updateExepense() {
+    setExpense(100);
   }
 
   return (
     <div>
       <div className="expense-item_description">
         <h2>{props.title}</h2>
-        <div id="titleExpense" className="expense-item_price">
-          ${props.amount}
-        </div>
-        <div onClick={deleteExepense} className="delete">
-          Delete
+        <div className="expense-item_price">${expense}</div>
+        <div onClick={updateExepense} className="update">
+          update
         </div>
       </div>
     </div>
