@@ -25,7 +25,7 @@ const ExpenseForm = () => {
             type="text"
             onChange={handleExpense}
             placeholder="Enter expense"
-            value={title}
+           
           />
         </div>
         <div className="new-expense_control">
@@ -35,7 +35,7 @@ const ExpenseForm = () => {
             placeholder="Enter Amount"
             onChange={handleAmount}
             min="0.01"
-            value={amount}
+            
           />
         </div>
         <div className="new-expense_control">
@@ -45,7 +45,7 @@ const ExpenseForm = () => {
             min="2019-02-01"
             max="2-03-2023"
             onChange={handleDate}
-            value={date}
+           
           />
         </div>
         <div className="new-expense_actions">
