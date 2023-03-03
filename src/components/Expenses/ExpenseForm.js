@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ExpenseForm = () => {
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
+
   function handleExpense(event) {
-    console.log(event.target.value);
+    setTitle(event.target.value);
   }
   function handleAmount(event) {
-    console.log(event.target.value);
+    setAmount(event.target.value);
+  }
+
+  function handleDate(event) {
+    setDate(event.target.value);
   }
 
   return (
@@ -17,6 +25,7 @@ const ExpenseForm = () => {
             type="text"
             onChange={handleExpense}
             placeholder="Enter expense"
+            value={title}
           />
         </div>
         <div className="new-expense_control">
@@ -26,6 +35,7 @@ const ExpenseForm = () => {
             placeholder="Enter Amount"
             onChange={handleAmount}
             min="0.01"
+            value={amount}
           />
         </div>
         <div className="new-expense_control">
@@ -34,7 +44,8 @@ const ExpenseForm = () => {
             type="date"
             min="2019-02-01"
             max="2-03-2023"
-            placeholder="Enter Amount"
+            onChange={handleDate}
+            value={date}
           />
         </div>
         <div className="new-expense_actions">
