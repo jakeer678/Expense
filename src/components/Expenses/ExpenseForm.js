@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 
-const ExpenseForm = () => {
-  const [enterTitle, setTitle] = useState("");
-  const [enterAmount, setAmount] = useState("");
-  const [enterDate, setDate] = useState("");
+const ExpenseForm = (props) => {
+  const [enterTitle, setEnterTitle] = useState("");
+  const [enterAmount, setEnterAmount] = useState("");
+  const [enterDate, setEnterDate] = useState("");
 
   function handleExpense(event) {
-    setTitle(event.target.value);
+    setEnterTitle(event.target.value);
   }
   function handleAmount(event) {
-    setAmount(event.target.value);
+    setEnterAmount(event.target.value);
   }
 
   function handleDate(event) {
-    setDate(event.target.value);
+    setEnterDate(event.target.value);
   }
 
   function handleSubmit(e) {
@@ -23,7 +23,10 @@ const ExpenseForm = () => {
       amount: enterAmount,
       date: new Date(enterDate),
     };
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
+    setEnterTitle("");
+    setEnterAmount("");
+    setEnterDate("");
   }
 
   return (
@@ -44,7 +47,6 @@ const ExpenseForm = () => {
             type="number"
             placeholder="Enter Amount"
             onChange={handleAmount}
-            min=""
             value={enterAmount}
           />
         </div>
