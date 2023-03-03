@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const ExpenseForm = () => {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [enterTitle, setTitle] = useState("");
+  const [enterAmount, setAmount] = useState("");
+  const [enterDate, setDate] = useState("");
 
   function handleExpense(event) {
     setTitle(event.target.value);
@@ -16,8 +16,18 @@ const ExpenseForm = () => {
     setDate(event.target.value);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const expenseData = {
+      title: enterTitle,
+      amount: enterAmount,
+      date: new Date(enterDate),
+    };
+    console.log(expenseData);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="new-expense_controls">
         <div className="new-expense_control">
           <label>Title</label>
@@ -25,7 +35,7 @@ const ExpenseForm = () => {
             type="text"
             onChange={handleExpense}
             placeholder="Enter expense"
-           
+            value={enterTitle}
           />
         </div>
         <div className="new-expense_control">
@@ -34,8 +44,8 @@ const ExpenseForm = () => {
             type="number"
             placeholder="Enter Amount"
             onChange={handleAmount}
-            min="0.01"
-            
+            min=""
+            value={enterAmount}
           />
         </div>
         <div className="new-expense_control">
@@ -45,7 +55,7 @@ const ExpenseForm = () => {
             min="2019-02-01"
             max="2-03-2023"
             onChange={handleDate}
-           
+            value={enterDate}
           />
         </div>
         <div className="new-expense_actions">
