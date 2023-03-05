@@ -1,5 +1,5 @@
 import React from "react";
-import './ExpenseFilter.css'
+import "./ExpenseFilter.css";
 
 const ExpenseFilter = (props) => {
   const dropDwonHnadle = (event) => {
